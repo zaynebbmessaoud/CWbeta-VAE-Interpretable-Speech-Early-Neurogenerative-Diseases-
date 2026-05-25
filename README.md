@@ -6,7 +6,7 @@
 
 *[Author Names]**[Conference/Journal Name]*, [Year] [![DOI](https://img.shields.io/badge/DOI-xxxxx-blue)](https://doi.org/xxxxx)
 
-## 📌 Overview
+## Overview
 
 Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains challenging due to overlapping speech impairments, particularly in early stages. This repository provides a complete implementation of an interpretable speech-based framework for digital biomarker discovery combining:
 
@@ -16,7 +16,7 @@ Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains chal
 - **Gradient-based saliency mapping** for population-level biomarker identification
 - **XGBoost classifier** achieving 96% accuracy for PD vs. ET differentiation
   
-## 📊 Pipeline Architecture
+## Pipeline Architecture
 
 1. **Acoustic Preprocessing:** Raw speech signals are transformed into unified $224 \times 224$ spectro-temporal slices.
 2. **Generative Bottlenecking:** The $CW\beta$-VAE maps spectral densities into a continuous, class-conditioned $d=32$ latent space.
@@ -30,7 +30,7 @@ Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains chal
    ```
 5. **Statistical Stratification:** Non-parametric permutation frameworks mapping univariate boundaries vs. global multivariate accuracy anomalies.
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```text
 ├── data/                   # Sample data or scripts to download the dataset
@@ -49,7 +49,8 @@ Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains chal
 conda env create -f environment.yml
 conda activate cwbeta-vae
 pip install -r requirements.txt
-
+```
+GPU is required for training Raw Mel Spectrogram + XGboot
 
 ## 📝 Citation
 ```bibtex
