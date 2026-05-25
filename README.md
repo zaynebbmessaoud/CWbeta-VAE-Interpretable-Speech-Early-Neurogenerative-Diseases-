@@ -65,17 +65,22 @@ data/
 
 ## Reproducing the Results
 
-To guarantee reproducibility and ensure rigorous evaluation across our cross-language corpora, please execute the pipeline in the following exact order.
-
-**1. Feature and Embedding Extraction** Extract standard acoustic biomarkers and deep representations from the Large Audio Models (LAMs) across all clinical speech datasets.
+Run the scripts in order:
 ```bash
-python 1_extract.py              # Extract features and embeddings for all three audio models
+1. Preprocess data and generate spectrograms
+python scripts/preprocess_data.py --audio_dir ./data/audio --output_dir ./data/spectrograms
 
+2. Train CWβ-VAE model
+python scripts/run_training.py --config experiments/configs/vae_config.yaml
 
+3. Extract latent features and classify
+python scripts/run_evaluation.py --checkpoint ./experiments/checkpoints/best_model.h5
 
+4. Compute saliency maps and statistical tests
+python scripts/run_permutation_tests.py --n_resamples 10000
 ```
 
-## 📝 Citation
+## Citation
 ```bibtex
 @article{[citation-key],
   title   = {[A Saliency-Mapped CWβ-VAE Framework for Interpretable Speech Biomarkers in Early Parkinson’s Disease and Essential Tremor]},
