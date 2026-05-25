@@ -30,18 +30,6 @@ Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains chal
    ```
 5. **Statistical Stratification:** Non-parametric permutation test.
 
-## Repository Structure
-
-```text
-├── data/                   # Sample data or scripts to download the dataset
-├── feature_extraction/     # Scripts for audio processing and feature extraction 
-├── models/                 # Machine learning architectures and trained weights
-├── notebooks/              # Jupyter notebooks for data exploration and XAI visualization
-├── results/                # Output logs, figures, and performance metrics
-├── requirements.txt        # Package dependencies
-└── main.py                 # Main execution script for training and evaluation
-
-```
 ### Installation
 
 ```bash
@@ -60,24 +48,17 @@ data/
 ├── data/hc/<filename>.wav      # Healthy controls 
 ├── data/PD/<filename>.wav      # Parkinson Disease
 └── data/ET/<filename>.wav      # Essential Temor
-
 ```
 
 ## Reproducing the Results
 
 Run the scripts in order:
 ```bash
-1. Preprocess data and generate spectrograms
-python scripts/preprocess_data.py --audio_dir ./data/audio --output_dir ./data/spectrograms
-
-2. Train CWβ-VAE model
-python scripts/run_training.py --config experiments/configs/vae_config.yaml
-
-3. Extract latent features and classify
-python scripts/run_evaluation.py --checkpoint ./experiments/checkpoints/best_model.h5
-
-4. Compute saliency maps and statistical tests
-python scripts/run_permutation_tests.py --n_resamples 10000
+python scripts/preprocess_data.py     #   Preprocess data and generate spectrograms   
+python scripts/run_training.py        # Train CWβ-VAE model 
+python scripts/run_evaluation.py      # Extract latent features and classify 
+python scripts/saliency maps.py       # Compute saliency maps
+python scripts/statistical tests.py   # Compute statistical tests 
 ```
 
 ## Citation
