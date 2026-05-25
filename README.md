@@ -58,7 +58,7 @@ python scripts/preprocess_data.py     #   Preprocess data and generate spectrogr
 python scripts/run_training.py        # Train CWβ-VAE model 
 python scripts/run_evaluation.py      # Extract latent features and classify 
 python scripts/saliency maps.py       # Compute saliency maps
-python scripts/statistical tests.py   # Compute statistical tests 
+python scripts/permutation_test.py    # Compute statistical tests 
 ```
 
 ## Citation
