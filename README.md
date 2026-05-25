@@ -53,13 +53,13 @@ pip install -r requirements.txt
 GPU is required for training Raw Mel Spectrogram + XGboot
 
 ## Data
-organize your spectrogram tensors or images inside the `data/` directory. The pipeline expects data to be structured by cohort for class-conditioned loading:
+This work uses the corpus, which is not redistributed in this repository. Request access from the corpus authors. The pipeline expects audio at:
 
 ```text
 data/
-├── PD/     # 41 Parkinson's Disease subject spectrograms (224x224)
-├── TE/     # 35 Essential Tremor subject spectrograms (224x224)
-└── CTRL/   # 14 Healthy Control subject spectrograms (224x224)
+├── data/hc/<filename>.wav      # Healthy controls 
+├── data/PD/<filename>.wav      # Parkinson Disease
+└── data/ET/<filename>.wav      # Essential Temor
 
 ```
 
