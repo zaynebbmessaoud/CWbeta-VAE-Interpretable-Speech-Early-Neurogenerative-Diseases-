@@ -28,7 +28,7 @@ Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains chal
    * Upper Clarity ($1.8$–$3.0$ kHz)
    * Spectral Noise ($3.0$–$4.0$ kHz)
    ```
-5. **Statistical Stratification:** Non-parametric permutation frameworks mapping univariate boundaries vs. global multivariate accuracy anomalies.
+5. **Statistical Stratification:** Non-parametric permutation test.
 
 ## Repository Structure
 
@@ -51,6 +51,29 @@ conda activate cwbeta-vae
 pip install -r requirements.txt
 ```
 GPU is required for training Raw Mel Spectrogram + XGboot
+
+## Data
+organize your spectrogram tensors or images inside the `data/` directory. The pipeline expects data to be structured by cohort for class-conditioned loading:
+
+```text
+data/
+├── PD/     # 41 Parkinson's Disease subject spectrograms (224x224)
+├── TE/     # 35 Essential Tremor subject spectrograms (224x224)
+└── CTRL/   # 14 Healthy Control subject spectrograms (224x224)
+
+```
+
+## Reproducing the Results
+
+To guarantee reproducibility and ensure rigorous evaluation across our cross-language corpora, please execute the pipeline in the following exact order.
+
+**1. Feature and Embedding Extraction** Extract standard acoustic biomarkers and deep representations from the Large Audio Models (LAMs) across all clinical speech datasets.
+```bash
+python 1_extract.py              # Extract features and embeddings for all three audio models
+
+
+
+```
 
 ## 📝 Citation
 ```bibtex
