@@ -6,7 +6,16 @@
 
 *[Author Names]**[Conference/Journal Name]*, [Year] [![DOI](https://img.shields.io/badge/DOI-xxxxx-blue)](https://doi.org/xxxxx)
 
----
+## 📌 Overview
+
+Differentiating Parkinson's Disease (PD) from Essential Tremor (ET) remains challenging due to overlapping speech impairments, particularly in early stages. This repository provides a complete implementation of an interpretable speech-based framework for digital biomarker discovery combining:
+
+- **Conditional Weighted β-VAE (CWβ-VAE)** for learning disentangled latent representations
+- **Cost-sensitive class weights** to address cohort imbalance (14 HC, 41 PD, 35 ET)
+- **Sigmoid KL annealing** to prevent posterior collapse
+- **Gradient-based saliency mapping** for population-level biomarker identification
+- **XGBoost classifier** achieving 96% accuracy for PD vs. ET differentiation
+  
 ## 📊 Pipeline Architecture
 
 1. **Acoustic Preprocessing:** Raw speech signals are transformed into unified $224 \times 224$ spectro-temporal slices.
@@ -33,6 +42,15 @@
 └── main.py                 # Main execution script for training and evaluation
 
 ```
+### Installation
+
+```bash
+# Create conda environment
+conda env create -f environment.yml
+conda activate cwbeta-vae
+pip install -r requirements.txt
+
+
 ## 📝 Citation
 ```bibtex
 @article{[citation-key],
